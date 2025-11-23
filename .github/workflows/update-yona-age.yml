@@ -1,0 +1,38 @@
+name: Update Yona's Age
+
+on:
+  schedule:
+    # Run daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update-age:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Calculate and update age
+        id: update-age
+        run: |
+          python scripts/update-yona-age.py
+          AGE_STR=$(python -c "import json; print(json.load(open('data/yona-age.json'))['approximateAge'])")
+          echo "age_str=$AGE_STR" >> $GITHUB_OUTPUT
+          echo "Calculated age: $AGE_STR"
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/yona-age.json
+          git diff --staged --quiet || git commit -m "Update Yona's age to ${{ steps.update-age.outputs.age_str }}"
+          git push
+
