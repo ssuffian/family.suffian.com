@@ -26,8 +26,9 @@ import { SITE_DESCRIPTION } from '../consts';
 <script is:inline>
 	const form = document.getElementById('login-form');
 	const errorMessage = document.getElementById('error-message');
+	const passwordInput = document.getElementById('password');
 	
-	form?.addEventListener('submit', async (e) => {
+	async function handleSubmit(e) {
 		e.preventDefault();
 		const formData = new FormData(form);
 		const password = formData.get('password');
@@ -45,6 +46,16 @@ import { SITE_DESCRIPTION } from '../consts';
 		} else {
 			errorMessage.textContent = 'Incorrect password. Please try again.';
 			errorMessage.style.display = 'block';
+		}
+	}
+	
+	form?.addEventListener('submit', handleSubmit);
+	
+	// Also handle Enter key on the password input
+	passwordInput?.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			form?.requestSubmit();
 		}
 	});
 </script>

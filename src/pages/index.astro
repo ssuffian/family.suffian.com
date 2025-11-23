@@ -1,7 +1,10 @@
 ---
+import agesData from '../../data/ages.json';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const age = agesData.approximateAge;
 ---
 
 <!doctype html>
@@ -15,6 +18,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			<p>
 				Hello, you've reached Steve and Becky's website.
 			</p>
+			<p>Yona is {age} years old.</p>
+			<p>E-mail <a href="mailto:celebratebeckysteve@gmail.com">celebratebeckysteve@gmail.com</a> to get access to our family Google Photo album.</p>
+			<p>Use this website to see what <a href="/library">books</a> we already have in our library, to donate to our <a href="/529">529 Fund</a>, or to see our <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/registries/gl/guest-view/2G3R6SMC72SV?ref_=cm_sw_r_cp_ud_ggr-subnav-share_5NZCB3PDDG5N9E2K48HP">Amazon Gift Registry</a>.</p>
 		</main>
 	</body>
 </html>
