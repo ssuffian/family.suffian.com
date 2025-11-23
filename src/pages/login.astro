@@ -1,0 +1,51 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Login" description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Login</h1>
+			<form method="POST" action="/login" id="login-form">
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required autofocus />
+				<button type="submit">Login</button>
+			</form>
+			<p id="error-message" style="color: red; display: none;"></p>
+		</main>
+	</body>
+</html>
+
+<script is:inline>
+	const form = document.getElementById('login-form');
+	const errorMessage = document.getElementById('error-message');
+	
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const formData = new FormData(form);
+		const password = formData.get('password');
+		
+		const response = await fetch('/api/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ password }),
+		});
+		
+		if (response.ok) {
+			window.location.href = '/';
+		} else {
+			errorMessage.textContent = 'Incorrect password. Please try again.';
+			errorMessage.style.display = 'block';
+		}
+	});
+</script>
+
