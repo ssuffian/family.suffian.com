@@ -1,21 +1,13 @@
 ---
-import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/library">Book Library</HeaderLink>
-			<HeaderLink href="/529">529 Fund</HeaderLink>
-			<a href="https://www.amazon.com/registries/gl/guest-view/2G3R6SMC72SV?ref_=cm_sw_r_cp_ud_ggr-subnav-share_5NZCB3PDDG5N9E2K48HP" 
-			   target="_blank" 
-			   rel="noopener noreferrer"
-			   class="header-link">
-				Gift Registry
-			</a>
+			<HeaderLink href="/gift-ideas">Gift Ideas</HeaderLink>
 		</div>
 	</nav>
 </header>
@@ -38,7 +30,7 @@ import HeaderLink from './HeaderLink.astro';
 	nav {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 	}
 	nav a {
 		padding: 1em 0.5em;

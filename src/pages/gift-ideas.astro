@@ -1,0 +1,89 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Gift Ideas" description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Gift Ideas</h1>
+			<section>
+				<h2>Donate to Organizations</h2>
+				<p>Some organizations we would be honored for you to support in Yona's honor are:</p>
+				<ul style="line-height: 2;">
+					<li>
+						<strong><a href="https://www.breadandroses.org/" target="_blank" rel="noopener noreferrer">Bread & Roses Gender Justice Giving Project Fund</a></strong> - <a href="https://breadrosesfund.org/2025-gender-justice-giving-project-donations/" target="_blank" rel="noopener noreferrer">Donate</a>
+					</li>
+					<li>
+						<strong><a href="https://www.friendscenter.org/" target="_blank" rel="noopener noreferrer">Friends Child Care Center</a></strong> - <a href="https://www.paypal.com/donate?hosted_button_id=ULKG52W4LJD9S" target="_blank" rel="noopener noreferrer">Donate</a>
+					</li>
+					<li>
+						<strong><a href="https://www.fsrp.org/" target="_blank" rel="noopener noreferrer">Friends of Schuylkill River Park</a></strong> - <a href="https://www.fsrp.org/donate" target="_blank" rel="noopener noreferrer">Donate</a>
+					</li>
+					<li>
+						<strong><a href="https://smithplayground.org/" target="_blank" rel="noopener noreferrer">Smith Memorial Playground and Playhouse</a></strong> - <a href="https://apps.smithplayground.org/donate-now" target="_blank" rel="noopener noreferrer">Donate</a>
+					</li>
+                    <li><strong><a href="https://www.atticyouthcenter.org/" target="_blank" rel="noopener noreferrer">Attic Youth Center</a></strong> - <a href="https://form-renderer-app.donorperfect.io/give/attic-youth-center/2025-ok2bu" target="_blank" rel="noopener noreferrer">Donate</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Donate to Yona's College Fund</h2>
+				<p>If you would like to make a contribution to Yona's PA 529 College Guaranteed Savings Plan, please use the following information:</p>
+				<ol style="line-height: 2;">
+					<li>
+						Go to <a href="https://Ugift529.com" target="_blank" rel="noopener noreferrer">Ugift529.com</a>
+					</li>
+					<li>
+						Enter the Ugift code: <strong>U2K-H63</strong>
+					</li>
+					<li>
+						Enter your name and the amount of your gift.
+					</li>
+					<li>
+						Make your gift via electronic funds transfer or check.
+					</li>
+				</ol>
+			</section>
+			<section>
+				<h2>Toys and Books</h2>
+				<p>He loves gardening, basketball, music, and books. He enjoys toys where he can figure things out with his hands, like buckles, buttons, hammers, fitting pieces in specific spots, etc.</p>
+				<p>We love hand-me-downs and second-hand items. If you prefer to buy new, here is an <a href="https://www.amazon.com/registries/gl/guest-view/2G3R6SMC72SV?ref_=cm_sw_r_cp_ud_ggr-subnav-share_5NZCB3PDDG5N9E2K48HP" target="_blank" rel="noopener noreferrer">Amazon gift registry</a>.</p>
+			</section>
+		</main>
+	</body>
+</html>
+
+<style>
+	.registry-link {
+		display: inline-block;
+		padding: 0.75em 1.5em;
+		background-color: var(--accent);
+		color: white;
+		text-decoration: none;
+		border-radius: 8px;
+		font-weight: 600;
+		transition: background-color 0.2s ease, transform 0.1s ease;
+		box-shadow: 0 2px 4px rgba(var(--black), 0.1);
+	}
+	
+	.registry-link:hover {
+		background-color: var(--accent-dark);
+		transform: translateY(-1px);
+		box-shadow: 0 4px 8px rgba(var(--black), 0.15);
+	}
+	
+	.registry-link:active {
+		transform: translateY(0);
+	}
+	
+	section {
+		margin-bottom: 2em;
+	}
+</style>
+
