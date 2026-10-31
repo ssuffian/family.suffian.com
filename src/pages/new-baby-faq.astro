@@ -1,0 +1,37 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="New Baby FAQ" description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>New Baby FAQ</h1>
+			<section>
+				<h2>Can I visit and meet the baby?</h2>
+				<p>Yes! Once we’re home from the hospital, we would love visitors. We really value quality time with you, our friends and family. Please reach out to us if you’d like to come visit. If you’d like to hold the baby, please make sure you’ve had a Tdap vaccine in the last 10 years and are fully vaccinated against measles.</p>
+				<p>For those who don’t live within visiting distance, we would love to just hear from you and be connected. Even if we are not quick to respond to each message or call, we love your outreach. Call, text, or email either of us.</p>
+			</section>
+			<section>
+				<h2>How can we support Yona, as a new big brother?</h2>
+				<p>We’d love to have visitors, play-dates, outings, and FaceTime chats for Yona as he goes through this big transition. Please reach out to us if you’d like some special Yona time.</p>
+			</section>
+			<section>
+				<h2>Can I post photos of the baby, or news about the baby, on social media?</h2>
+				<p>Out of concerns for the privacy of our family, please don’t post any photos or news of our baby on your social media. Instead, feel free to send photos to friends and family via your favorite private messaging platform (texts, WhatsApp, iMessage, Signal, Element.io, etc.).</p>
+			</section>
+		</main>
+	</body>
+</html>
+
+<style>
+	section {
+		margin-bottom: 2em;
+	}
+</style>
