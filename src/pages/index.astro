@@ -1,10 +1,14 @@
 ---
-import agesData from '../../data/ages.json';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-const age = agesData.approximateAge;
+// Calculate on each request, rounded to the nearest quarter-year.
+const birthDate = Date.UTC(2024, 2, 1);
+const quarters = Math.max(0, Math.round((Date.now() - birthDate) / (365.25 * 24 * 60 * 60 * 1000) * 4));
+const years = Math.floor(quarters / 4);
+const fraction = ['', '1/4', '1/2', '3/4'][quarters % 4];
+const age = fraction ? (years ? `${years} ${fraction}` : fraction) : String(years);
 ---
 
 <!doctype html>
